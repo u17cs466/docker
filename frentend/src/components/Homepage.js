@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../App.css";
 import { Link } from 'react-router-dom'
 
-function App() {
+function Homepage() {
     const [prompt, updatePrompt] = useState(undefined);
     const [loading, setLoading] = useState(false);
     const [answer, setAnswer] = useState(undefined);
@@ -17,7 +17,6 @@ function App() {
         if (event.key !== "Enter") {
             return;
         }
-
         try {           
             setLoading(true);
             const requestOptions = {
@@ -25,9 +24,7 @@ function App() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt }),
             };
-
             const res = await fetch("http://localhost:5000/api/ask", requestOptions);
-
             if (!res.ok) {
                 throw new Error("Something went wrong");
             }
@@ -44,7 +41,7 @@ function App() {
 
     return (
         <>
-            <Link to='/images'>
+            <Link to='/image'>
                 <div className="">
                     <button className="bg-red-400 text-white font-bold py-3 px-10 rounded m-10 capitalize">
                         Imagepage
@@ -64,6 +61,8 @@ function App() {
                     onChange={(e) => updatePrompt(e.target.value)}
                     onKeyDown={(e) => sendPrompt(e)}
                 />
+                {/* <button className="bg-red-400 text-white font-bold py-3 px-10 md:px-10 rounded m-10 capitalize" onClick={createText}>Submit</button> */}
+
             </div>
             <div className="w-auto text-center h-auto bg-white-300 mx-60 my-16 shadow-md ">{answer && <p>{answer}</p>}</div>
 
@@ -72,4 +71,4 @@ function App() {
     );
 }
 
-export default App;
+export default Homepage;
