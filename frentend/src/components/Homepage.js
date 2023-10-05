@@ -24,7 +24,7 @@ function Homepage() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt }),
             };
-            const res = await fetch("http://localhost:7000/api/ask", requestOptions);
+            const res = await fetch("http://localhost:4000/api/ask", requestOptions);
             if (!res.ok) {
                 throw new Error("Something went wrong");
             }
@@ -42,11 +42,11 @@ function Homepage() {
     return (
         <>
             <Link to='/image'>
-                <div className="">
+                
                     <button className="bg-red-400 text-white font-bold py-3 px-10 rounded m-10 capitalize">
                         Imagepage
                     </button>
-                </div>
+               
             </Link>
 
             <div className="border-blue-100">
