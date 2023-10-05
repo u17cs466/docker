@@ -1,6 +1,14 @@
 const app = require('./app');
-require("dotenv").config();
+const dotenv = require('dotenv');
+dotenv.config({ path: `${__dirname}/.env` });
+const { Configuration, OpenAIApi } = require("openai");
 try {
+
+    const configuration = new Configuration({
+        apiKey: process.env.OPENAI_API_KEY,
+    });
+
+    const openai = new OpenAIApi(configuration);
     console.log("connect sucessfully")
 }
 catch (err) {

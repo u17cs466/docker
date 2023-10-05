@@ -5,13 +5,14 @@ const configuration = require("../configaration/config")
 const openai = new OpenAIApi(configuration);
 
 const askData = async (req, res) => {
-    const prompt = req.body;
+    const prompt = req.body.prompt;
+    console.log(prompt)
     try {
         if (prompt == null) {
             throw new Error("Uh oh, no prompt was provided bro");
         }
         const response = await openai.createCompletion({
-            model: "gpt-3.5-turbo-instruct",
+            model: "gpt-3.5-turbo-0301",
             prompt,
         });
         const completion = response.data.choices[0].text;

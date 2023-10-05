@@ -17,18 +17,18 @@ function Homepage() {
         if (event.key !== "Enter") {
             return;
         }
-        try {           
+        try {
             setLoading(true);
             const requestOptions = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt }),
             };
-            const res = await fetch("http://localhost:5000/api/ask", requestOptions);
+            const res = await fetch("http://localhost:7000/api/ask", requestOptions);
             if (!res.ok) {
                 throw new Error("Something went wrong");
             }
-            console.log(res.body,'request body')
+            console.log(res.body, 'request body')
             const { message } = await res.json();
             setAnswer(message);
             console.log(message)

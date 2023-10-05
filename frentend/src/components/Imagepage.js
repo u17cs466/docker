@@ -13,7 +13,7 @@ function Imagepage() {
     }, [prompt]);
     const createImg = async () => {
         console.log(prompt)
-        const response = await axios.post("http://localhost:5000/api/ask/image", {
+        const response = await axios.post("http://localhost:7000/api/ask/image", {
             prompt,
         });
         setImageURL(response.data);
