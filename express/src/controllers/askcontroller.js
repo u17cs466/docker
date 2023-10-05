@@ -11,7 +11,7 @@ const askData = async (req, res) => {
             throw new Error("Uh oh, no prompt was provided bro");
         }
         const response = await openai.createCompletion({
-            model: "gpt-3.5-turbo",
+            model: "gpt-3.5-turbo-instruct",
             prompt,
         });
         const completion = response.data.choices[0].text;
