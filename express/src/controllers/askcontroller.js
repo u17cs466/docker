@@ -25,5 +25,23 @@ const askData = async (req, res) => {
         console.log(error.message, "error message");
     }
 }
+const ImageCreate = async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        const response = await openai.createImage({
+            prompt,
+            n: 1,
+            size: "512x512",
+        });
+        const completion = response.data.data[0].url;
+        return res.status(200).json({
+            success: true,
+            data: completion,
+        });
+    }
+    catch (error) {
+        console.log(error.message, "error message");
+    }
+};
 
-module.exports = { askData };
+module.exports = { askData, ImageCreate };
