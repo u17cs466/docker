@@ -16,8 +16,8 @@ function Imagepage() {
         const response = await axios.post("http://localhost:4000/api/ask/image", {
             prompt,
         });
-        setImageURL(response.data);
-        console.log(response)
+        setImageURL(response.data.message);
+        //console.log(response.data)
     };
 
     return (

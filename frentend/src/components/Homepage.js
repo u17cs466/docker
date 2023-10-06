@@ -42,11 +42,11 @@ function Homepage() {
     return (
         <>
             <Link to='/image'>
-                
-                    <button className="bg-red-400 text-white font-bold py-3 px-10 rounded m-10 capitalize">
-                        Imagepage
-                    </button>
-               
+
+                <button className="bg-red-400 text-white font-bold py-3 px-10 rounded m-10 capitalize">
+                    Imagepage
+                </button>
+
             </Link>
 
             <div className="border-blue-100">
